@@ -15,7 +15,6 @@ task_done = False
 task_lock = threading.Lock()
 
 WEBHOOK_URL = os.getenv("WEBHOOK_URL", "http://localhost:5000/webhook")
-# Database connection pool
 try:
     connection_pool = pooling.MySQLConnectionPool(
         pool_name="qr_scanner_pool",
@@ -38,7 +37,7 @@ def get_user_by_id(user_id):
         return None
     try:
         cursor = conn.cursor(dictionary=True)
-        cursor.execute("SELECT * FROM users WHERE id = %s", (user_id,))  # change users with your table name 
+        cursor.execute("SELECT * FROM acddata WHERE id = %s", (user_id,)) 
         user = cursor.fetchone()
         cursor.close()
         return user
@@ -59,7 +58,6 @@ def loading_page():
 def scan_qr():
     try:
         qr_data = request.json.get('qr_data', '')
-        # Parse QR data
         parts = dict(item.split(':', 1) for item in qr_data.split('|') if ':' in item)
         user_id, name = parts.get('id'), parts.get('n')
 
@@ -71,7 +69,6 @@ def scan_qr():
             return jsonify({'success': False, 'message': 'User not found'}), 404
         if not user.get('flag'):
             return jsonify({'success': False, 'message': 'Flag is false'}), 403
-        # ✅ Send webhook in background
         def send_webhook():
             try:
                 webhook_data = {

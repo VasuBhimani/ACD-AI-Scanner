@@ -40,39 +40,39 @@
         background-image: linear-gradient(135deg, var(--dark-purple), #4a288a);
       }
 
-      /* Particle Grid Background */
+      
       #particle-grid {
         position: absolute;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
-        z-index: -1; /* Behind other content */
+        z-index: -1; 
       }
 
       .logo-container {
         position: relative;
-        margin-bottom: 40px; /* Space between logo and spinner */
-        display: flex; /* To center the logo and its new background */
+        margin-bottom: 40px; 
+        display: flex; 
         justify-content: center;
         align-items: center;
-        border-radius: 50%; /* Make background circular */
-        padding: 20px; /* Padding inside the circular background */
+        border-radius: 50%; 
+        padding: 20px; 
         background: radial-gradient(circle at center, rgba(255,255,255,0.05) 0%, rgba(255, 98, 34, 0.1) 30%, transparent 70%); /* Light orange background for the logo */
         animation: logo-bg-pulse 3s infinite alternate ease-in-out;
       }
 
-      /* Specific styling for the new black logo */
+      
       .custom-logo {
-        width: 180px; /* Adjust size as needed for responsiveness */
+        width: 180px; 
         height: auto;
-        filter: invert(1) drop-shadow(0 0 8px var(--accent-orange)); /* Invert to white, add orange glow */
+        filter: invert(1) drop-shadow(0 0 8px var(--accent-orange)); 
         animation: custom-logo-glow 3s infinite alternate ease-in-out;
       }
       
       @keyframes logo-bg-pulse {
-          0% { box-shadow: 0 0 15px rgba(255, 98, 34, 0.5); } /* Orange glow */
-          50% { box-shadow: 0 0 30px rgba(228, 255, 122, 0.8); } /* Lime glow */
+          0% { box-shadow: 0 0 15px rgba(255, 98, 34, 0.5); } 
+          50% { box-shadow: 0 0 30px rgba(228, 255, 122, 0.8); } 
           100% { box-shadow: 0 0 15px rgba(255, 98, 34, 0.5); }
       }
 
@@ -89,7 +89,7 @@
         width: 70px;
         height: 70px;
         animation: spin 1s linear infinite;
-        margin-bottom: 25px; /* Space between spinner and text */
+        margin-bottom: 25px; 
       }
 
       @keyframes spin {
@@ -109,13 +109,13 @@
         text-shadow: 0 0 10px rgba(202, 233, 238, 0.5);
       }
 
-      /* Responsive adjustments */
+      
       @media (max-width: 600px) {
         .custom-logo {
           width: 220px;
         }
         .logo-container {
-            padding: 30px; /* Adjust padding for smaller screens */
+            padding: 30px; 
         }
         h2 {
           margin-top: 30px;
@@ -149,7 +149,7 @@
     <h2>Processing... Please wait</h2>
 
     <script>
-      // Particle Grid Animation (re-used from previous examples)
+      
       const particleCanvas = document.getElementById("particle-grid");
       const particleCtx = particleCanvas.getContext('2d');
       let particles = [];
@@ -184,7 +184,7 @@
           requestAnimationFrame(animateParticles);
       }
 
-      // Initialize particles and animation
+      
       setupParticleGrid();
       animateParticles();
       window.addEventListener('resize', setupParticleGrid);
@@ -198,13 +198,13 @@
             if (data.status === "complete") {
               window.location.href = data.redirect;
             } else {
-              setTimeout(checkTaskStatus, 1000); //2000
+              setTimeout(checkTaskStatus, 1000); 
             }
           })
           .catch((error) => {
             console.error("Error checking task status:", error);
-            // Optionally handle error, e.g., display a message or retry
-            setTimeout(checkTaskStatus, 1000); // 5000 // Retry after a longer delay 
+            
+            setTimeout(checkTaskStatus, 1000); 
           });
       }
 
@@ -225,7 +225,7 @@
           } catch (err) {
             console.error("Polling error:", err);
           }
-        }, 1000); //2000
+        }, 1000); 
       }
 
       const params = new URLSearchParams(window.location.search);

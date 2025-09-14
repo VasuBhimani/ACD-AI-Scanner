@@ -66,7 +66,6 @@
             align-items: center;
         }
         
-        /* --- NEW: Fullscreen Grid & Scan Line --- */
         .scan-grid {
             position: absolute;
             top: 0;
@@ -123,7 +122,7 @@
             padding: 20px;
             text-align: center;
             background: linear-gradient(to top, rgba(30, 0, 69, 0.7), transparent);
-            z-index: 15; /* Ensure info panel is on top */
+            z-index: 15; 
         }
         
         #message {
@@ -133,14 +132,14 @@
             font-weight: bold;
             max-width: 500px;
             backdrop-filter: blur(5px);
-            opacity: 0;                /* start hidden */
-            transition: opacity 0.5s ease-in-out; /* smooth fade */
-            pointer-events: none;       /* avoid blocking clicks */
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out; 
+            pointer-events: none;       
         }
 
 
         #message.show {
-            opacity: 1;                 /* visible when .show is added */
+            opacity: 1;                 
             pointer-events: auto;
         }
 
@@ -162,7 +161,7 @@
             text-decoration: underline;
         }
 
-        /* Loading Overlay */
+        
         .loading-overlay {
             position: fixed;
             top: 0;
@@ -170,7 +169,7 @@
             width: 100%;
             height: 100%;
             background: rgba(30, 0, 69, 0.9);
-            display: none; /* Initially hidden */
+            display: none; 
             justify-content: center;
             align-items: center;
             z-index: 1000;

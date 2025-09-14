@@ -15,7 +15,7 @@ DB_CONFIG = {
 
 # Database table schema
 # DATABASE_SCHEMA = """
-# CREATE DATABASE IF NOT EXISTS qr_scanner_db;
+# CREATE DATABASE IF NOT EXISTS qr_scanner;
 # USE qr_scanner_db;
 
 # CREATE TABLE IF NOT EXISTS users (
